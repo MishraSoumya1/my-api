@@ -17,13 +17,14 @@ app.use(
   sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
     saveUninitialized: true,
-    cookie: { maxAge: oneDay, secure: true },
+    cookie: { maxAge: oneDay, val: "I am netlify", secure: true },
     resave: false,
   })
 );
 
 router.get("/", (req, res) => {
-  res.status(200).cookie("cookieName", "I am netlify").json({
+  console.log(req.cookies);
+  res.status(200).json({
     value: Math.random().toString(),
   });
 });
