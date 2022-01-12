@@ -17,7 +17,7 @@ app.use(
   sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
     saveUninitialized: true,
-    cookie: { maxAge: oneDay, secure },
+    cookie: { maxAge: oneDay, secure: true },
     resave: false,
   })
 );
