@@ -17,7 +17,12 @@ app.use(
   sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
     saveUninitialized: true,
-    cookie: { maxAge: oneDay, val: "I am netlify", secure: true },
+    cookie: {
+      maxAge: oneDay,
+      val: "I am netlify",
+      sameSite: "none",
+      secure: true,
+    },
     resave: false,
   })
 );
