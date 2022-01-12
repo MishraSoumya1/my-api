@@ -1,5 +1,5 @@
-import cookieParser from "cookie-parser";
-import cors from "cors";
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const express = require("express");
 const serverless = require("serverless-http");
 
