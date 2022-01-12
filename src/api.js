@@ -37,6 +37,12 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/data", (req, res) => {
+  res.status(200).json({
+    value: JSON.stringify(res.cookie),
+  });
+});
+
 app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
