@@ -27,14 +27,9 @@ app.use(
 );
 
 router.get("/", (req, res) => {
-  res
-    .status(200)
-    .cookie({
-      val: "I am netlify",
-    })
-    .json({
-      value: Math.random().toString(),
-    });
+  res.status(200).cookie("val", "I am netlify").json({
+    value: Math.random().toString(),
+  });
 });
 
 router.get("/data", (req, res) => {
