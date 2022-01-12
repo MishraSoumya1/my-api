@@ -19,8 +19,7 @@ app.use(
     saveUninitialized: true,
     cookie: {
       maxAge: oneDay,
-      val: "I am netlify",
-      sameSite: "none",
+      sameSite: "strict",
       secure: true,
     },
     resave: false,
@@ -28,10 +27,14 @@ app.use(
 );
 
 router.get("/", (req, res) => {
-  console.log(req.cookies);
-  res.status(200).json({
-    value: Math.random().toString(),
-  });
+  res
+    .status(200)
+    .cookie({
+      val: "I am netlify",
+    })
+    .json({
+      value: Math.random().toString(),
+    });
 });
 
 app.use(`/.netlify/functions/api`, router);
